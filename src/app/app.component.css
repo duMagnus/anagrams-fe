@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+main {
+    padding: 1rem 3rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    color: rgb(6, 45, 128);
+}
+button {
+    border-radius: 2rem;
+    padding: 1rem;
+    border: none;
+    box-sizing: border-box;
+    margin: 0.5rem;
+}
+
+button:hover {
+    background-color: rgb(44, 221, 177);
+    transition: ease-in-out 0.1s;
+    cursor: pointer;
+}
+.newWord{
+    background-color: rgb(32, 212, 167);
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    font-size: large;
+}
+
+mat-select {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    font-size: large;
+    box-sizing: border-box;
+    border-radius: 2rem;
+    width: 13rem;
+    padding: 1rem;
+    border: 2px rgb(32, 212, 167) solid;
+    margin: 0.5rem;
+    padding-left: 2rem;
+    transition: ease-in-out 0.1s;
+}
+
+mat-select:hover {
+    border: 2px rgb(6, 45, 128) solid;
+}
+
+.row {
+    display: flex; /* equal height of the children */
+    margin: 2rem 0;
+}
+
+.guessOuter {
+    background-color: rgb(179, 179, 179);
+    border-radius: 5rem;
+    padding: 2rem;
+    min-height: 10rem;
+    box-sizing: border-box;
+}
+
+.guessInner {
+    margin: auto;
+}
+
+.guessLetter {
+    background-color: rgb(228, 228, 228);
+    min-height: 5rem;
+    min-width: 5rem;
+    border-radius: 2.5rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    font-size: xx-large;
+    color: rgb(6, 45, 128);
+    transition: 0.1s;
+}
+
+.wordOuter {
+    background-color: rgb(236, 236, 236);
+    border: 2px rgb(32, 212, 167) solid;
+    border-radius: 5rem;
+    padding: 2rem;
+    min-height: 10rem;
+    box-sizing: border-box;
+}
+
+.wordInner {
+    margin: auto;
+}
+
+.wordLetter {
+    background-color: rgb(228, 228, 228);
+    min-height: 5rem;
+    min-width: 5rem;
+    border-radius: 2.5rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    font-size: xx-large;
+    color: rgb(6, 45, 128);
+    transition: 0.1s;
+}
+
+.wordLetter:disabled,
+.wordLetter[disabled]{
+  border: 1px solid rgb(6, 45, 128);
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+}
