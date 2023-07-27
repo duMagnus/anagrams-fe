@@ -19,6 +19,8 @@ export class AppComponent implements OnInit{
 
   constructor(private http: HttpClient) { }
 
+  useOpenAi = false;
+
   word: string[];
   
   scrambledWord: string[];
@@ -37,15 +39,22 @@ export class AppComponent implements OnInit{
 
   isGuessCorrect: boolean = false;
 
+  score: number = 0;
+
   readonly ROOT_URL = 'http://127.0.0.1:5000'
   
   getNewWord() {
+    this.isGuessCorrect = false
+
     this.scrambledWord = new Array;
-    const response = this.http.post<NewWord>(this.ROOT_URL + '/getword', { "difficulty": this.difficulty, "language": this.language })
+    const response = this.http.post<NewWord>(this.ROOT_URL + '/getword', { "difficulty": this.difficulty, "language": this.language, "getFromOpenAi": this.useOpenAi})
     response.subscribe((current) => {
       this.word = Array.from(current.word)
       this.scrambledWord = Array.from(current.scrambledWord)
       this.guess = Array(this.scrambledWord.length).fill('')
+
+      console.log(this.scrambledWord)
+      console.log(this.word)
       
       for (let index = 0; index < this.scrambledWord.length; index++) {
         this.disabledLetters[index] = false;
@@ -80,10 +89,9 @@ export class AppComponent implements OnInit{
   }
 
   isGuessRight() {
-    console.log('word: ',this.word.toString())
-    console.log('guess: ', this.guess.toString())
     if (this.word.toString() == this.guess.toString()) {
       this.isGuessCorrect = true;
+      this.score += this.word.length
     }
   }
 

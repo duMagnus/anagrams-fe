@@ -3,9 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LetterOptionComponent } from './letter-option/letter-option.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LetterSelectedComponent } from './letter-selected/letter-selected.component'
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -15,12 +13,11 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatChipsModule } from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LetterOptionComponent,
-    LetterSelectedComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     MatButtonModule,
     MatCheckboxModule,
     MatChipsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

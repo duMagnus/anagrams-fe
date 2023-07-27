@@ -8,14 +8,14 @@ main {
 }
 button {
     border-radius: 2rem;
-    padding: 1rem;
+    padding: 1.25rem;
     border: none;
     box-sizing: border-box;
     margin: 0.5rem;
 }
 
 button:hover {
-    background-color: rgb(44, 221, 177);
+    background-color: rgb(88, 226, 192);
     transition: ease-in-out 0.1s;
     cursor: pointer;
 }
@@ -25,6 +25,7 @@ button:hover {
     font-family: 'Roboto Mono', monospace;
     font-weight: 600;
     font-size: large;
+    height: 100%;
 }
 
 mat-select {
@@ -35,31 +36,37 @@ mat-select {
     border-radius: 2rem;
     width: 13rem;
     padding: 1rem;
-    border: 2px rgb(32, 212, 167) solid;
+    border: 4px rgb(32, 212, 167) solid;
     margin: 0.5rem;
     padding-left: 2rem;
     transition: ease-in-out 0.1s;
+    height: 100%;
 }
 
 mat-select:hover {
-    border: 2px rgb(6, 45, 128) solid;
+    border-color: rgb(88, 226, 192);
+    transition: ease-in-out 0.1s;
 }
 
 .row {
     display: flex; /* equal height of the children */
     margin: 2rem 0;
+    justify-content: space-between;
+    min-width: 980px;
+    height: 4rem;
 }
 
 .guessOuter {
     background-color: rgb(179, 179, 179);
     border-radius: 5rem;
-    padding: 2rem;
+    padding: 2rem 0;
     min-height: 10rem;
     box-sizing: border-box;
 }
 
 .guessInner {
     margin: auto;
+    justify-content: center;
 }
 
 .guessLetter {
@@ -78,13 +85,14 @@ mat-select:hover {
     background-color: rgb(236, 236, 236);
     border: 2px rgb(32, 212, 167) solid;
     border-radius: 5rem;
-    padding: 2rem;
+    padding: 2rem 0;
     min-height: 10rem;
     box-sizing: border-box;
 }
 
 .wordInner {
     margin: auto;
+    justify-content: center;
 }
 
 .wordLetter {
@@ -100,9 +108,60 @@ mat-select:hover {
 }
 
 .wordLetter:disabled,
-.wordLetter[disabled]{
+.wordLetter[disabled],
+.guessLetter:disabled,
+.guessLetter[disabled]{
   border: 1px solid rgb(6, 45, 128);
   background-color: #cccccc;
   color: #666666;
   cursor: default;
+}
+
+mat-slide-toggle{
+    margin: auto 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    font-size: large;
+}
+
+.text {
+    margin: auto 0.5rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    font-size: large;
+    color: rgb(6, 45, 128);
+}
+
+.score {
+    margin: auto 1rem;
+    font-size: xx-large;
+    border-radius: 2rem;
+    padding: 1.3rem;
+    background-color: #e2e2e2;
+    box-sizing: border-box;
+    height: 100%;
+    float: right;
+}
+
+.score-text {
+    margin: auto 0.5rem;
+}
+
+.congrats {
+    background-color: rgb(6, 45, 128);
+    border: 2px rgb(170, 170, 170) solid;
+    border-radius: 5rem;
+    padding: 2rem;
+    min-height: 5rem;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.congrats-text {
+    margin: auto 0;
+    font-size: large;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    line-height: 2rem;
+    color: white;
 }

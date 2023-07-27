@@ -1,21 +1,33 @@
 <main>
 
   <div class="row">
+    <div>
+
+      <button class="newWord" (click)="getNewWord()">New Word</button>
+      
+      <mat-select [(value)]="difficulty">
+        <mat-option *ngFor="let dif of difficulties" [value]="dif">{{ dif }}</mat-option>
+      </mat-select>
+      
+      <mat-select [(value)]="language" [disabled]="!useOpenAi">
+        <mat-option *ngFor="let lang of languages" [value]="lang">{{ lang }}</mat-option>
+      </mat-select>
+      
+      <mat-slide-toggle (click)="useOpenAi = !useOpenAi" class="texto"><p class="text">Use AI</p></mat-slide-toggle>
+      
+    </div>
     
-    <button class="newWord" (click)="getNewWord()">New Word</button>
-    
-    <mat-select [(value)]="difficulty">
-      <mat-option *ngFor="let dif of difficulties" [value]="dif">{{ dif }}</mat-option>
-    </mat-select>
-    
-    <mat-select [(value)]="language">
-      <mat-option *ngFor="let lang of languages" [value]="lang">{{ lang }}</mat-option>
-    </mat-select>
+    <div class="score">
+      <p class="score-text">
+        Score: {{ score }}
+      </p>
+    </div>
+
   </div>
   <div class="row guessOuter">
     <div class="row guessInner">
       <button class="guessLetter" *ngFor="let guessLetter of guess; let i = index" 
-      (click)="[guess[i] = '', enableButton(guessLetter)]" [disabled]="guessLetter === ''">{{ guessLetter }}</button>
+      (click)="[guess[i] = '', enableButton(guessLetter)]" [disabled]="guessLetter === '' || isGuessCorrect">{{ guessLetter }}</button>
     </div>
   </div>
   <div class="row wordOuter">
@@ -25,7 +37,11 @@
     </div>
   </div>
   <div class="row">
-    <div *ngIf="isGuessCorrect">You are right!</div>
+    <div *ngIf="isGuessCorrect" class="congrats">
+      <p class="congrats-text">
+        You are right! You have earned {{ word.length }} points! Your total now is {{ score }}. To go again, select the desired difficulty and hit 'New Word'.
+      </p>
+    </div>
   </div>
   <router-outlet></router-outlet>
 </main>
